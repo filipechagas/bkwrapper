@@ -1,17 +1,17 @@
 require 'minitest/autorun'
 require 'minitest/mock'
-require_relative "../lib/backup_executor"
+require_relative "../../lib/backup/backup_executor"
 
-BackupExecutor.class_eval do
+Backup::BackupExecutor.class_eval do
   private
     def system command
       nil
     end
 end
 
-describe BackupExecutor do
+describe Backup::BackupExecutor do
   let(:backupper) { Minitest::Mock.new }
-  let(:backup_executor) { BackupExecutor.new backupper }
+  let(:backup_executor) { Backup::BackupExecutor.new backupper }
 
   before do
     backupper.expect :compressed_filename, "compressed_filename"

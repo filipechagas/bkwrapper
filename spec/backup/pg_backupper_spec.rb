@@ -1,15 +1,15 @@
 require 'minitest/autorun'
 require 'minitest/mock'
-require_relative "../lib/pg_backupper"
+require_relative "../../lib/backup/pg_backupper"
 
-describe PgBackupper do
+describe Backup::PgBackupper do
   before do
     @test_project_name = "testproject"
     @db_username = "username"
     @db_password = "password"
     @db_name = "database"
     @backup_filename = "xxx-#{@test_project_name}.backup"
-    @pg_backupper = PgBackupper.new(@test_project_name, @db_username, @db_password, @db_name)
+    @pg_backupper = Backup::PgBackupper.new(@test_project_name, @db_username, @db_password, @db_name)
   end
 
   it 'should construct the right filename' do
