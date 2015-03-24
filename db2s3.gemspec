@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version       = '0.0.0'
   s.date          = '2015-03-24'
   s.summary       = 'Backup your databases and send them to your s3 account'
-  s.description   = 'A simple wrapper over your database backup commands and s3 api.'
+  s.description   = 'A simple wrapper for your database backup commands and s3 api.'
   s.authors       = ['Filipe Chagas']
   s.email         = 'filipe@ochagas.com'
   s.files         = `git ls-files`.split("\n")
