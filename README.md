@@ -1,15 +1,15 @@
-Bkwrapper
-========
+#Bkwrapper
 
-On my work, we have several projects, each one running on top of different databases - postgres, mysql, mongodb... - and I always forget the backup commands for each one of them.
 
-That's why I've written this gem: To wrap up the backup commands so then I only have to remember one backup syntax.
+On my work, we have several projects, each one running on top of different databases - postgres, mysql, mongodb... - and I always forget the backup command for each one of them.
 
-As part of my needs, it also uplods the generated backup file to a amazon s3 account.
+That's why I've written this gem: To wrap up the backup commands so that I only have to remember one backup syntax.
 
-Usage
------
+As part of my needs, it also uplods the generated backup file to an amazon s3 account.
 
-```
-bkwrapper [pg|mysql] [name-of-your-project] [name-of-your-database] [database-username] [database-password] [s3-access-key-id] [s3-secret-access-key] [s3-bucket-name]
-```
+##Usage
+
+
+
+    bkwrapper [pg|mysql] [name-of-your-project] [name-of-your-database] [database-username] [database-password] [s3-access-key-id] [s3-secret-access-key] [s3-bucket-name]
+
