@@ -1,8 +1,11 @@
 $:.push File.expand_path("../lib", __FILE__)
 
+require "bkwrapper/version"
+
 Gem::Specification.new do |s|
   s.name          = 'bkwrapper'
-  s.version       = '0.0.1'
+  s.version       = Bkwrapper::VERSION
+  s.platform      = Gem::Platform::RUBY
   s.date          = '2015-03-24'
   s.summary       = 'Backup your databases and send them to your s3 account'
   s.description   = 'A simple wrapper for your database backup commands and s3 api.'
