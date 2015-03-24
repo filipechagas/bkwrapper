@@ -5,7 +5,7 @@ require_relative "../../lib/backup/backup_executor"
 Backup::BackupExecutor.class_eval do
   private
     def system command
-      nil
+      true
     end
 end
 

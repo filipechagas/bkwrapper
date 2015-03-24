@@ -14,15 +14,27 @@ module Backup
 
     private
       def generate_backup_file
-        system @backupper.backup_command
+        system_execute @backupper.backup_command
+      rescue
+        system 'rm *.backup'
+        raise "Error generating backup file"
       end
 
       def generate_compressed_file
-        system @backupper.compress_command
+        system_execute @backupper.compress_command
+      rescue
+        system 'rm *.zip'
+        raise "Error generating zip file"
       end
 
       def remove_backup_file
-        system "rm #{@backupper.backup_filename}"
+        system_execute "rm #{@backupper.backup_filename}"
       end
+
+      def system_execute command
+        result = system command
+        raise "Command returned an error" unless result
+      end
+
   end
 end

@@ -1,13 +1,14 @@
-#require "aws-sdk"
-#s3 = Aws::S3::Client.new
-#resp = s3.list_buckets
-#puts resp.buckets.map(&:name)
+require_relative "lib/backup/backup_executor"
+require_relative "lib/backup/pg_backupper"
+require_relative "lib/s3/uploader"
 
+backupper = Backup::PgBackupper.new("test", "filipechagas", "", "quez-new_development")
+backup_executor = Backup::BackupExecutor.new(backupper)
+uploader = S3::Uploader.new "AKIAILK47MBEBB5VRAQQ", "CPwVuqn63ZNzsmzUgBg2xewJ6tpwjibaDA3ahhjN"
 
-require_relative "lib/backup_executor"
-require_relative "lib/pg_backupper"
+backup_filename = backup_executor.generate_backup
+backup_filename = File.expand_path("../#{backup_filename}", __FILE__)
 
-backupper = PgBackupper.new("test", "filipechagas", "", "quez-new_development")
-backup_executor = BackupExecutor.new(backupper)
+uploader.upload_file backup_filename
 
-backup_executor.generate_backup
+Dir.glob('./*.zip').each { |f| File.delete(f) }
