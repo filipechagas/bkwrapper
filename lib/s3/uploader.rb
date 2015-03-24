@@ -5,14 +5,16 @@
 require "aws-sdk"
 module S3
   class Uploader
-    def initialize(access_key_id, secret_access_key)
+    def initialize(access_key_id, secret_access_key, project_name)
+      @project_name = project_name
+
       creds = ::Aws::Credentials.new(access_key_id, secret_access_key)
       @s3 = ::Aws::S3::Client.new(credentials: creds, region:'us-east-1')
     end
 
     def upload_file(filename)
       file_open = File.open(filename)
-      @s3.put_object(body: file_open, bucket: "quez-database-backups", key: File.basename(filename))
+      @s3.put_object(body: file_open, bucket: "quez-database-backups/#{@project_name}", key: File.basename(filename))
     end
 
     def buckets_names

@@ -12,7 +12,7 @@ module Backup
     end
 
     def backup_command
-      "PGPASSWORD=#{db_password} pg_dump -U #{db_username} -Fc #{db_name} > #{backup_filename}"
+      "PGPASSWORD=#{db_password} pg_dump -U #{db_username} -Fc #{db_name} > /var/tmp/#{backup_filename}"
     end
 
     def backup_filename

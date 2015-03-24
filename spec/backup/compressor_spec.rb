@@ -14,7 +14,7 @@ describe CompressorHost do
   end
 
   it 'should construct zip command properly' do
-    @compressor.compress_command.must_equal "zip backupfile.zip backupfile"
+    @compressor.compress_command.must_equal "zip /var/tmp/backupfile.zip /var/tmp/backupfile"
   end
 
   it 'should define compressed filename properly' do

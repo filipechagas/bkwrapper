@@ -12,7 +12,7 @@ module Backup
     end
 
     def backup_command
-      "mysqldump -u#{db_username} -p#{db_password} #{db_name} > #{backup_filename}"
+      "mysqldump -u#{db_username} -p#{db_password} #{db_name} > /var/tmp/#{backup_filename}"
     end
 
     def backup_filename

@@ -21,7 +21,7 @@ describe Backup::MysqlBackupper do
   it 'should construct command properly' do
     @pg_backupper.stub :prefix, "xxx" do
       @pg_backupper.backup_command.
-        must_equal "mysqldump -u#{@db_username} -p#{@db_password} #{@db_name} > #{@backup_filename}"
+        must_equal "mysqldump -u#{@db_username} -p#{@db_password} #{@db_name} > /var/tmp/#{@backup_filename}"
     end
   end
 end

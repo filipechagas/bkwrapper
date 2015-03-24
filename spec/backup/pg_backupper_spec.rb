@@ -21,7 +21,7 @@ describe Backup::PgBackupper do
   it 'should construct command properly' do
     @pg_backupper.stub :prefix, "xxx" do
       @pg_backupper.backup_command.
-        must_equal "PGPASSWORD=#{@db_password} pg_dump -U #{@db_username} -Fc #{@db_name} > #{@backup_filename}"
+        must_equal "PGPASSWORD=#{@db_password} pg_dump -U #{@db_username} -Fc #{@db_name} > /var/tmp/#{@backup_filename}"
     end
   end
 end

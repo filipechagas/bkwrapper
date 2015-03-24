@@ -1,15 +1,22 @@
+PATH
+  remote: .
+  specs:
+    db2s3 (0.0.0)
+      aws-sdk (~> 2)
+      rake (~> 10.4.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    aws-sdk (2.0.30)
-      aws-sdk-resources (= 2.0.30)
-    aws-sdk-core (2.0.30)
+    aws-sdk (2.0.31)
+      aws-sdk-resources (= 2.0.31)
+    aws-sdk-core (2.0.31)
       builder (~> 3.0)
       jmespath (~> 1.0)
       multi_json (~> 1.0)
       multi_xml (~> 0.5)
-    aws-sdk-resources (2.0.30)
-      aws-sdk-core (= 2.0.30)
+    aws-sdk-resources (2.0.31)
+      aws-sdk-core (= 2.0.31)
     builder (3.2.2)
     jmespath (1.0.2)
       multi_json (~> 1.0)
@@ -21,5 +28,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (~> 2)
-  rake (~> 10.4.2)
+  db2s3!
