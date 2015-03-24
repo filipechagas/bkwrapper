@@ -1,15 +1,15 @@
 require 'minitest/autorun'
 require 'minitest/mock'
-require_relative "../../lib/backup/pg_backupper"
+require "bkwrapper/backup/mysql_backupper"
 
-describe Backup::PgBackupper do
+describe Bkwrapper::Backup::MysqlBackupper do
   before do
     @test_project_name = "testproject"
     @db_username = "username"
     @db_password = "password"
     @db_name = "database"
     @backup_filename = "xxx-#{@test_project_name}.backup"
-    @pg_backupper = Backup::PgBackupper.new(@test_project_name, @db_username, @db_password, @db_name)
+    @pg_backupper = Bkwrapper::Backup::MysqlBackupper.new(@test_project_name, @db_username, @db_password, @db_name)
   end
 
   it 'should construct the right filename' do
@@ -21,7 +21,7 @@ describe Backup::PgBackupper do
   it 'should construct command properly' do
     @pg_backupper.stub :prefix, "xxx" do
       @pg_backupper.backup_command.
-        must_equal "PGPASSWORD=#{@db_password} pg_dump -U #{@db_username} -Fc #{@db_name} > /var/tmp/#{@backup_filename}"
+        must_equal "mysqldump -u#{@db_username} -p#{@db_password} #{@db_name} > /var/tmp/#{@backup_filename}"
     end
   end
 end

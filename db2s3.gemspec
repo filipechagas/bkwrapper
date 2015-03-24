@@ -1,7 +1,7 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
-  s.name          = 'db2s3'
+  s.name          = 'bkwrapper'
   s.version       = '0.0.0'
   s.date          = '2015-03-24'
   s.summary       = 'Backup your databases and send them to your s3 account'

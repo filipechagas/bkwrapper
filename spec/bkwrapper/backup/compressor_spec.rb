@@ -1,8 +1,8 @@
 require 'minitest/autorun'
-require_relative "../../lib/backup/compressor"
+require "bkwrapper/backup/compressor"
 
 class CompressorHost
-  include Backup::Compressor
+  include Bkwrapper::Backup::Compressor
   def backup_filename
     "backupfile"
   end

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    db2s3 (0.0.0)
+    bkwrapper (0.0.0)
       aws-sdk (~> 2)
       rake (~> 10.4.2)
 
@@ -28,4 +28,4 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  db2s3!
+  bkwrapper!
