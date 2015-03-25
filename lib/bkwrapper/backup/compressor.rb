@@ -2,7 +2,7 @@ module Bkwrapper
   module Backup
     module Compressor
       def compress_command
-        "zip /var/tmp/#{compressed_filename} /var/tmp/#{backup_filename}"
+        "zip -j /var/tmp/#{compressed_filename} /var/tmp/#{backup_filename}"
       end
 
       def compressed_filename
